@@ -25,8 +25,7 @@ with open(csv_path, newline="") as csvfile:
         average_change.append(total_amount[i+1]-total_amount[i])   
         #greatest / lowest change in profits
         #largest_change.append(total_amount[i+1]-total_amount[i])
-
-      
+        
     largest_increase = max(average_change)
     largest_decrease = min(average_change)
     total_months = len(total_months)
@@ -39,3 +38,12 @@ print(f"Average Change: ${round(sum(average_change) / len(average_change), 2)}")
 print(f"Greatest Increase in Profits: {months[average_change.index(max(average_change))+1]} ({largest_increase})")
 print(f"Greatest Decrease in Profits: {months[average_change.index(min(average_change))+1]} ({largest_decrease})")
 
+f = open("analysis/Results.txt", "w")
+f.write(f"Financial Analysis\n")
+f.write(f"----------------------------\n")
+f.write(f"Total Months: {total_months}\n")
+f.write(f"Total: ${sum(total_amount)}\n")
+f.write(f"Average Change: ${round(sum(average_change) / len(average_change), 2)}\n")
+f.write(f"Greatest Increase in Profits: {months[average_change.index(max(average_change))+1]} ({largest_increase})\n")
+f.write(f"Greatest Decrease in Profits: {months[average_change.index(min(average_change))+1]} ({largest_decrease})\n")
+f.close()
