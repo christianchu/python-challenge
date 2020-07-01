@@ -26,23 +26,27 @@ with open(csv_path, newline="") as csvfile:
            candidates_index = candidates.index(row[2])
            #add 1 to thier vote
            total_won.append(row[0])
+           
        else:
+           #index position of candidate
            candidates_index = candidates.index(row[2])
+           #add one and set that candidates index position
            total_won[candidates_index] =+ 1
            
     #print total number of rows(votes)       
     total_votes = len(total_votes)
     #max value winner
     winner = max(total_won)
+    #set index of winner
     win_in = total_won.index(winner)
+    #retrieve candidate name
     elected = candidates[win_in]
 
-    
 print(f"Election Results")
 print(f"-------------------------")
 print(f"Total Votes: {total_votes}")
 print(f"-------------------------")
-print(f"{candidates}: {total_won}")
+print(f"{candidates}: {total_won[candidates_index]}")
 print(f"-------------------------")
 print(f"Winner: {elected}")
 
