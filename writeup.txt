@@ -1,0 +1,1 @@
+This python assignment was very challenging. I had difficulties pulling the list of candidates and using index to match their total number of votes won. Counter for each candidates number of votes was not looping correctly.
